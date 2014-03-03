@@ -10,7 +10,7 @@
   (follow [this username followee])
   (wall [this username]))
 
-(defrecord Store [users]
+(defrecord UserStore [users]
   SocNet
   (post
     [this username message]
@@ -33,4 +33,4 @@
                                  followed-users)]
       (sort-by :timestamp #(compare %2 %1) followed-posts))))
 
-(defn create [] (Store. {}))
+(defn create [] (UserStore. {}))

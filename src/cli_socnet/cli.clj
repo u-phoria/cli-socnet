@@ -8,11 +8,11 @@
 
 (def ^:const prompt "> ")
 
+;Just a function for now, may become a protocol extended across
+;various types we need to print beyond User
 (defn print-post
   ([p] (print-post p true))
   ([p with-username?]
-    "Just a function for now, may become a protocol extended across
-     various types we need to print beyond User"
     (println (str (when with-username?
                     (format "%s - " (:username p)))
                   (:message p)
@@ -20,12 +20,12 @@
                   (.format (PrettyTime. (tc/to-date (:timestamp p))) (Date.))
                   ")"))))
 
-(defn cmd-type
+(defn command-to-op
   [_ c]
   (let [[_ op] (s/split c #"\s" 3)] 
     (if op (keyword op) :read)))
 
-(defmulti exec cmd-type)
+(defmulti exec command-to-op)
 
 (defmethod exec :->
   [socnet c]
