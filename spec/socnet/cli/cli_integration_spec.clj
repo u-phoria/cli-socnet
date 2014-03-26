@@ -1,8 +1,8 @@
-(ns cli-socnet.cli-integration-spec
+(ns socnet.cli.cli-integration-spec
   (:require [speclj.core :refer :all]
             [clojure.string :as s]
             [clj-time.core :as t]
-            [cli-socnet.cli :refer :all]))
+            [socnet.cli.main :refer :all]))
 
 (defn run-with-input
   [& lines]
@@ -37,7 +37,6 @@
                  (->
                    (run-with-input "joe -> hola" "joe")
                    filter-output-lines first)))))
-      
 
 (describe "following other users"
   (it "makes followed users' posts available on own wall"

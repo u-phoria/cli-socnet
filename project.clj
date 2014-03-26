@@ -6,8 +6,9 @@
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [clj-time "0.6.0"]
                  [com.ocpsoft/ocpsoft-pretty-time "1.0.6"]]
-  :profiles {:dev {:dependencies [[speclj "2.6.1"]]}
+  :profiles {:dev {:dependencies [[speclj "2.6.1"]
+                                  [org.clojars.runa/conjure "2.2.0"]]}
              :uberjar {:aot :all}}
   :plugins [[speclj "2.6.1"]]
   :test-paths ["spec"]
-  :main cli-socnet.cli)
+  :main socnet.cli.main)
